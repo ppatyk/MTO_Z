@@ -19,7 +19,7 @@ int change_character_case(char *s) {
     return 0;
 }
 
-int my_printf(char *format_string, char *param)
+int my_printf(char *format_string, char *param){
 	int i;
 	for(i=0;i<strlen(format_string);i++){
 		
@@ -31,20 +31,51 @@ int my_printf(char *format_string, char *param)
 			int j = i + 3;                          
 			bool is_formatted_properly = false; 
 			bool is_not_dot = false;
-			if ((is_a_number(format_string[i + 1]))) {   
-				j = i + 2;      
+			if ((is_a_number(format_string[i + 1]))) {  
+				j = i + 2;    
 				is_not_dot = true;
 			}
-
-
-	while (true) {
-		if (format_string[j] == '\0') {
-		    is_formatted_properly = false;
-		        break;
-		    } else if (format_string[j] == 'S') {
-		        is_formatted_properly = true;
+			
+		    while (true) { 
+		        if (format_string[j] == '\0') {
+		            is_formatted_properly = false;
+		            break;
+		        }
+				else if (format_string[j] == 'K') {
+		            is_formatted_properly = true;
 		            break;
 		        } else {
+		        	if (!is_a_number(format_string[j])){   
+						is_formatted_properly = false;
+		            	break;
+					}
 		            j++;
 		        }
 		    }
+		    
+		    if (is_formatted_properly) {
+		    	if (is_not_dot) {
+		    		i += 1;	    
+				} else {
+					i += 2;	   	
+				}
+		        int expected_string_length = 0;
+		        while(format_string[i] != 'K') { 
+		            expected_string_length = expected_string_length * 10 + (format_string[i] - '0');
+		            i++;
+		        }
+		        int j = 0;
+		        while((param[j] != '\0') && (j < expected_string_length)) {
+		            putchar(param[j]);
+		            j++;
+		        }
+		    } else {
+		        putchar(format_string[i]);
+		    }
+		} else {
+		    putchar(format_string[i]);
+		}
+	}
+	puts("");
+	return 0;
+}
