@@ -20,8 +20,23 @@ int change_character_case(char *s) {
 }
 
 int my_printf(char *format_string, char *param)
+	int i;
+	for(i=0;i<strlen(format_string);i++){
+		
+		if((format_string[i] == '#') && (format_string[i+1] == 'K')){
+			i++;
+			printf("%s",param);
+		} else if (format_string[i] == '#'){
 
-bool is_formatted_properly = false;
+			int j = i + 3;                          
+			bool is_formatted_properly = false; 
+			bool is_not_dot = false;
+			if ((is_a_number(format_string[i + 1]))) {   
+				j = i + 2;      
+				is_not_dot = true;
+			}
+
+
 	while (true) {
 		if (format_string[j] == '\0') {
 		    is_formatted_properly = false;
