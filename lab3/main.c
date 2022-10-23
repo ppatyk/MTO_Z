@@ -79,3 +79,16 @@ int my_printf(char *format_string, char *param){
 	puts("");
 	return 0;
 }
+
+
+int main(int argc, char *argv[]){
+	char buf[1024],buf2[1024];
+	while(gets(buf)){
+		gets(buf2);
+		change_character_case(buf);
+		change_character_case(buf2);
+		my_printf(buf,buf2);
+	}
+
+	return 0;
+}
