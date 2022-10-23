@@ -18,3 +18,18 @@ int change_character_case(char *s) {
     }
     return 0;
 }
+
+int my_printf(char *format_string, char *param)
+
+bool is_formatted_properly = false;
+	while (true) {
+		if (format_string[j] == '\0') {
+		    is_formatted_properly = false;
+		        break;
+		    } else if (format_string[j] == 'S') {
+		        is_formatted_properly = true;
+		            break;
+		        } else {
+		            j++;
+		        }
+		    }
