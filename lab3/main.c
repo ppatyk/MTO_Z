@@ -2,7 +2,9 @@
 #include <string.h>
 #include <stdbool.h>
 
-
+bool is_a_number(char character) {
+    return (character >= '0' && character <= '9');
+}
 
 int change_character_case(char *s) {
     int counter = 0;
