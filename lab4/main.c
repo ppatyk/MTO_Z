@@ -40,3 +40,18 @@ bool is_string_a_number(char *s) {
     }
     return true;
 }
+
+int my_printf(char *format_string, char *param, char *result){
+	int i;
+	for(i=0;i<strlen(format_string);i++){
+		if((format_string[i] == '#') && (format_string[i+1] == 'g')){    
+			strcat(result, param);
+			i++;
+		}
+		else {
+			strncat(result, format_string + i, 1);
+		}
+	}
+
+	return 0;
+}
