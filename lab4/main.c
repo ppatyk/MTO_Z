@@ -20,3 +20,7 @@ char *strrev(char *str)
     }
     return str;
 }
+
+bool is_a_number(char character) {
+    return (character >= '0' && character <= '9');
+}
