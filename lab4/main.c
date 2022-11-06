@@ -65,3 +65,26 @@ int main(int argc, char *argv[]){
 
 	fp_input = fopen("input.txt", "r");
 	fp_output = fopen("output.txt", "w");
+
+
+while(true) {
+		read = getline(&buf, &len, fp_input);
+		read2 = getline(&buf2, &len, fp_input);
+		memset(result, 0, 1024);
+
+		if (read == -1 || read2 == -1) {
+			break;
+		} else {
+			buf[strcspn(buf, "\n")] = 0;
+			buf2[strcspn(buf2, "\n")] = 0;
+			
+			if(is_string_a_number(buf2)) {    
+				printf("\nCorrect Input Format");
+			} else {
+				printf("\nSecond input parameter is not a number!");
+				break;
+			}
+
+			
+		}
+	}
