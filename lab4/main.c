@@ -13,9 +13,9 @@ char *strrev(char *str)
     while (i > j)
     {
         ch = str[i];                
-        str[i] = str[j];           
+        str[i] = str[j];            
         str[j] = ch;                
-        i--;                                                   
+        i--;                        
         j++;
     }
     return str;
@@ -44,7 +44,7 @@ bool is_string_a_number(char *s) {
 int my_printf(char *format_string, char *param, char *result){
 	int i;
 	for(i=0;i<strlen(format_string);i++){
-		if((format_string[i] == '#') && (format_string[i+1] == 'g')){    
+		if((format_string[i] == '#') && (format_string[i+1] == 'g')){   
 			strcat(result, param);
 			i++;
 		}
@@ -66,8 +66,7 @@ int main(int argc, char *argv[]){
 	fp_input = fopen("input.txt", "r");
 	fp_output = fopen("output.txt", "w");
 
-
-while(true) {
+	while(true) {
 		read = getline(&buf, &len, fp_input);
 		read2 = getline(&buf2, &len, fp_input);
 		memset(result, 0, 1024);
@@ -85,6 +84,18 @@ while(true) {
 				break;
 			}
 
-			
+			change_character_order(buf2);    
+			my_printf(buf, buf2, result);    
+
+			fputs(result, fp_output);
+			fputs("\n", fp_output);
 		}
 	}
+
+	fclose(fp_input);
+	fclose(fp_output);
+
+
+	return 0;
+}
+
