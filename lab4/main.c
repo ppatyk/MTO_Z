@@ -55,3 +55,13 @@ int my_printf(char *format_string, char *param, char *result){
 
 	return 0;
 }
+
+int main(int argc, char *argv[]){
+	FILE *fp_input;
+	FILE *fp_output;
+	char *buf = NULL, *buf2 = NULL, result[1024];
+	size_t len = 0;
+	ssize_t read, read2;
+
+	fp_input = fopen("input.txt", "r");
+	fp_output = fopen("output.txt", "w");
