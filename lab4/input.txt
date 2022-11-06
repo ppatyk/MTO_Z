@@ -1,0 +1,21 @@
+
+Ala123 ma kota!
+test1
+ala ma #g!
+test2
+ala432 ma #g i kota!
+test3
+#g#g
+test4
+ala 567 ma kota##!
+test5
+ala # # # ma ### kota #g
+test6
+Ala nie ma kota! 8
+test7
+Ala ma #33g i kota
+test8
+111Ala ma #g#g
+test9
+#g ala #g ma #kota #g
+test10
