@@ -33,3 +33,13 @@ int decrement_number(char *s) {
     decrement_string(s);    
 }
 
+bool is_string_a_number(char *s) {   
+	int counter = 0;
+    while (s[counter] != '\0') {
+        if (!is_a_number(s[counter])) {
+			return false;
+		}
+        counter++;
+    }
+    return true;
+}
