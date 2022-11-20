@@ -59,4 +59,19 @@ int my_printf(char *format_string, char *param, char *result){
 				is_not_dot = true;
 			}
 
-
+            while (true) { 
+		        if (format_string[j] == '\0') {
+		            is_formatted_properly = false;
+		            break;
+		        }
+				else if (format_string[j] == 'g') {
+		            is_formatted_properly = true;
+		            break;
+		        } else {
+		        	if (!is_a_number(format_string[j])){   
+						is_formatted_properly = false;
+		            	break;
+					}
+		            j++;
+		        }
+		    }
