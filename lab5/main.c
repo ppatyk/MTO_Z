@@ -43,3 +43,20 @@ bool is_string_a_number(char *s) {
     }
     return true;
 }
+
+int my_printf(char *format_string, char *param, char *result){
+	int i;
+	for(i=0;i<strlen(format_string);i++){
+		if((format_string[i] == '#') && (format_string[i+1] == 'g')){   
+			strcat(result, param);
+			i++;
+		} else if (format_string[i] == '#'){
+			int j = i + 3;                          
+			bool is_formatted_properly = false;
+			bool is_not_dot = false;
+			if ((is_a_number(format_string[i + 1]))) {   
+				j = i + 2;      // j == k
+				is_not_dot = true;
+			}
+
+
