@@ -19,7 +19,7 @@ char *decrement_string(char *str)
     		digit = 9;
 		}
 		ch = digit + '0';             
-		str[i] = ch;                        
+		str[i] = ch;                       
 		i--;                  
     }   
     return str;
@@ -51,44 +51,12 @@ int my_printf(char *format_string, char *param, char *result){
 			strcat(result, param);
 			i++;
 		} else if (format_string[i] == '#'){
-			int j = i + 3;                          
-			bool is_formatted_properly = false;
-			bool is_not_dot = false;
-			if ((is_a_number(format_string[i + 1]))) {   
-				j = i + 2;      // j == k
-				is_not_dot = true;
-			}
-
-            while (true) { 
-		        if (format_string[j] == '\0') {
-		            is_formatted_properly = false;
-		            break;
-		        }
-				else if (format_string[j] == 'g') {
-		            is_formatted_properly = true;
-		            break;
-		        } else {
-		        	if (!is_a_number(format_string[j])){   
-						is_formatted_properly = false;
-		            	break;
-					}
-		            j++;
-		        }
-		    }
-
-int my_printf(char *format_string, char *param, char *result){
-	int i;
-	for(i=0;i<strlen(format_string);i++){
-		if((format_string[i] == '#') && (format_string[i+1] == 'g')){   
-			strcat(result, param);
-			i++;
-		} else if (format_string[i] == '#'){
 
 			int j = i + 3;                          
 			bool is_formatted_properly = false;
 			bool is_not_dot = false;
 			if ((is_a_number(format_string[i + 1]))) {   
-				j = i + 2;      // j == k
+				j = i + 2;      
 				is_not_dot = true;
 			}
 			
@@ -109,14 +77,14 @@ int my_printf(char *format_string, char *param, char *result){
 		        }
 		    }
 		    
-		    if (is_formatted_properly) { // i == #
+		    if (is_formatted_properly) { 
 		    	if (is_not_dot) {
 		    		i += 1;	    
 				} else {
 					i += 2;	   
 				}
 		        int expected_string_length = 0;
-		        while(format_string[i] != 'g') {           
+		        while(format_string[i] != 'g') {  
 		            expected_string_length = expected_string_length * 10 + (format_string[i] - '0');
 		            i++;
 		        }
@@ -137,8 +105,6 @@ int my_printf(char *format_string, char *param, char *result){
 	return 0;
 }
 
-
-
 int main(int argc, char *argv[]){
 	FILE *fp_input;
 	FILE *fp_output;
@@ -153,3 +119,33 @@ int main(int argc, char *argv[]){
 		read = getline(&buf, &len, fp_input);
 		read2 = getline(&buf2, &len, fp_input);
 		memset(result, 0, 1024);
+
+		if (read == -1 || read2 == -1) {
+			break;
+		} else {
+			buf[strcspn(buf, "\n")] = 0;
+			buf2[strcspn(buf2, "\n")] = 0;
+			
+			if(is_string_a_number(buf2)) {    
+				printf("\nCorrect Input Format");
+			} else {
+				printf("\nSecond input parameter is not a number!");
+				break;
+			}
+
+			decrement_number(buf2);    
+			my_printf(buf, buf2, result);    
+
+			fputs(result, fp_output);
+			fputs("\n", fp_output);
+		}
+	}
+
+	fclose(fp_input);
+	fclose(fp_output);
+
+
+	return 0;
+}
+
+
