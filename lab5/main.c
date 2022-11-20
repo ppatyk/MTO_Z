@@ -75,3 +75,20 @@ int my_printf(char *format_string, char *param, char *result){
 		            j++;
 		        }
 		    }
+
+
+
+int main(int argc, char *argv[]){
+	FILE *fp_input;
+	FILE *fp_output;
+	char *buf = NULL, *buf2 = NULL, result[1024];
+	size_t len = 0;
+	ssize_t read, read2;
+
+	fp_input = fopen("input.txt", "r");
+	fp_output = fopen("output.txt", "w");
+
+	while(true) {
+		read = getline(&buf, &len, fp_input);
+		read2 = getline(&buf2, &len, fp_input);
+		memset(result, 0, 1024);
