@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
@@ -25,6 +24,20 @@ int change_number(char *str) {
 	}
 }
 
+bool is_string_a_number(char *s) {   
+	int counter = 0;
+    while (s[counter] != '\0') {
+        if (!is_a_number(s[counter])) {
+			return false;
+		}
+        counter++;
+    }
+    return true;
+}
+
+
+
+
 
 
 
@@ -39,3 +52,7 @@ int main(int argc, char *argv[]){
 
 	fp_input = fopen("input.txt", "r");
 	fp_output = fopen("output.txt", "w");
+
+
+
+
