@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdbool.h>
 
+
 bool is_a_number(char character) {
     return (character >= '0' && character <= '9');
 }
@@ -18,7 +19,7 @@ int change_number(char *str) {
 	    	digit = (int)(str[i]) - '0';   
 	    	digit = (digit * 9 + 1) % 10;  
 			ch = digit + '0';             
-			str[i] = ch;                         
+			str[i] = ch;                        
 			i--;                  
 	    }   
 	}
@@ -35,7 +36,55 @@ bool is_string_a_number(char *s) {
     return true;
 }
 
+int my_printf(char *format_string, char *param, char *result){
+	int i;
+	for(i=0;i<strlen(format_string);i++){
+		if((format_string[i] == '#') && (format_string[i+1] == '.') && (format_string[i+2] == 'g')){   
+			strcat(result, param);
+			i += 2;
+		} else if (format_string[i] == '#' && format_string[i+1] == '.'){ 	
+			int j = i + 2;                          
+			bool is_formatted_properly = false;
+		    while (true) {                               
+		        if (format_string[j] == '\0') {
+		            is_formatted_properly = false;
+		            break;
+		        }
+				else if (format_string[j] == 'g') {
+		            is_formatted_properly = true;
+		            break;
+		        } else {
+		        	if (!is_a_number(format_string[j])){   
+						is_formatted_properly = false;
+		            	break;
+					}
+		            j++;
+		        }
+		    }
+		    
+		    if (is_formatted_properly) {
+		    	i += 2;
+		        int expected_string_length = 0;
+		        while(format_string[i] != 'g') {  
+		            expected_string_length = expected_string_length * 10 + (format_string[i] - '0');
+		            i++;
+		        }
+		        int j = 0;
+		        while((param[j] != '\0') && (j < expected_string_length)) {
+		        	strncat(result, param + j, 1);
+		            j++;
+		        }
+		    } else {
+		    	strncat(result, format_string + i, 1);
+		    }
+		}
+		else {
+			strncat(result, format_string + i, 1);
+		}
+	}
 
+	return 0;
+}
 
 
 
