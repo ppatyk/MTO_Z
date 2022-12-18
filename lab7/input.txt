@@ -1,20 +1,10 @@
 Ala 1af3 ma kota!
-test1
 ala ma #j!
-test2
 ala 15ra ma #j i kota!
-test3
 #j#j
-test4
 ala 15ca ma kota##!
-test5
 ala # # # ma ### kota #j
-test6
 Ala nie ma kota! 1af3
-test7
 Ala ma #1af3j i kota
-test8
 1af3Ala ma #j#j
-test9
 #j ala #j ma #kota #j
-test10
