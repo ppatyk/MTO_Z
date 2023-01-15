@@ -1,0 +1,20 @@
+TEST1#.21j ala ma kota
+8700708
+TEST2#.11j ala ma kota 
+8087070998
+TEST3k#.3jala ma kota
+909889080
+TEST4 #.j ala ma kota
+5769696
+TEST5 #k ala ma kota
+18707080
+TEST6 j ala ma kota
+00978090098
+TEST7 #j ala ma kota
+0
+TEST8 #j ala ma kota
+9886979
+TEST9 #.11j ala ma kota
+^&&^%%%*&
+TEST10 #.21j ala ma kota
+344#%67#dfg
