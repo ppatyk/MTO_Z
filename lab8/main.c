@@ -108,3 +108,51 @@ int my_printf(char *format_string, char *param, char *result){
 
 	return 0;
 }
+
+int main(int argc, char *argv[]){
+	FILE *fp_input;
+	FILE *fp_output;
+	char *buf = NULL, *buf2 = NULL, result[1024];
+	size_t len = 0;
+	ssize_t read, read2;
+	int input_number;
+
+	fp_input = fopen("input.txt", "r");
+	fp_output = fopen("output.txt", "w");
+
+	while(true) {
+		read = getline(&buf, &len, fp_input);
+		read2 = getline(&buf2, &len, fp_input);
+		memset(result, 0, 1024);
+
+		if (read == -1 || read2 == -1) {
+			break;
+		} else {
+			buf[strcspn(buf, "\n")] = 0;
+			buf2[strcspn(buf2, "\n")] = 0;
+			
+			if(is_string_a_number(buf2)) {    
+				printf("\nCorrect Input Format");
+			} else {
+				printf("\nSecond input parameter is not a number!");
+				break;
+			}
+			
+			int input_number;
+			sscanf(buf2, "%d", &input_number); 
+    		sprintf(buf2, "%x", input_number);  
+			change_number(buf2);    
+
+			my_printf(buf, buf2, result);    
+
+			fputs(result, fp_output);
+			fputs("\n", fp_output);
+		}
+	}
+
+	fclose(fp_input);
+	fclose(fp_output);
+
+
+	return 0;
+}
