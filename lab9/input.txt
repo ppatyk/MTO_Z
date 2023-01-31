@@ -1,0 +1,20 @@
+TEST1 #.25f text after test
+132456789
+TEST2#.15f text after test
+953454045
+TEST3k#.5ftext after test
+27230456078
+TEST4 #.f text after test
+1450456078
+TEST5 #f text after test
+4567800009
+TEST6 f text after test
+0978905756
+TEST7 #f text after test
+0
+TEST8 #f text after test
+567800345
+TETS9 #.15f text after test
+^&&^%%&*&
+TETS10 #.25j text after test
+344#$67#dfg
