@@ -1,0 +1,20 @@
+TEST1 #.25q text after test
+1324a5678b9
+TEST2#.15q text after test
+95aaa34540bbb45
+TEST3k#.5qtext after test
+27230456078
+TEST4 #.2q text after test
+ABCDEFGHIJKLMNO
+TEST5 #k text after test
+4567800009
+TEST6 q text after test
+0978905756
+TEST7 #.5q text after test
+0
+TEST8 #.8q text after test
+567800345
+TETS9 #.15q text after test
+^&&^%%&*&
+TETS10 #.25q text after test
+344#$67#dfg
