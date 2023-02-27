@@ -1,22 +1,20 @@
-#!/usr/bin/env python3
-
+import re
 import sys
 
-def my_printf(format_string,param):
-    #print(format_string)
-    shouldDo=True
-    for idx in range(0,len(format_string)):
-        if shouldDo:
-            if format_string[idx] == '#' and format_string[idx+1] == 'k':
-                print(param,end="")
-                shouldDo=False
-            else:
-                print(format_string[idx],end="")
-        else:
-            shouldDo=True
-    print("")
 
-data=sys.stdin.readlines()
+def get_replacement_string(expected_length, param):
+    result = param \
+        .replace('7', '9') \
+        .replace('6', '8') \
+        .replace('5', '7') \
+        .replace('4', '6') \
+        .replace('3', '5') \
+        .replace('2', '4') \
+        .replace('1', '3') \
+        .replace('0', '2')
 
-for i in range(0,len(data),2):
-    my_printf(data[i].rstrip(),data[i+1].rstrip())
+    if expected_length < len(result):
+        return result[:expected_length]
+    else:
+        return result
+
