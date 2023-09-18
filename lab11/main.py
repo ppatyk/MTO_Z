@@ -59,12 +59,8 @@ def decimal_to_binary(param):
 
 def my_printf(format_string, param):
     new_param = decimal_to_binary(param)
-    result = format_string.replace('#d', new_param)
+    result = format_string.replace('#b', new_param)
     print(result)
-
-    format_string = format_string.replace('#b', result)
-    print(format_string)
-
 
 
 data = sys.stdin.readlines()
