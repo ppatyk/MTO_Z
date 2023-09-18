@@ -3,41 +3,24 @@
 import sys
 
 
-def convertBin(string):
-    converted = ''
-    for char in string:
-        if 'a' <= char <= 'z':
-            char = chr(ord(char))
- 
-        if char == '0':
-            char = 'o'
 
-        converted += char
+def my_printf(s):
+    alphabet = 'abcdefghij'
+    result = ''
+    binary_digits = bin(int(s))[2:]  # Konwersja na liczbę binarną i usunięcie prefixu '0b'
 
-    return converted
+    if binary_digits == '0':
+        return '0'
 
-
-def removeZeros(BinValue, amount):
-    BinLen = len(BinValue)
-    if BinLen < int(amount):
-        for i in range(int(amount) - BinLen):
-            BinValue = '0' + BinValue
-
-    return BinValue
-
-def my_printf(format_string,param):
-    #print(format_string)
-    shouldDo=True
-    for idx in range(0,len(format_string)):
-        if shouldDo:
-            if format_string[idx] == '#' and format_string[idx+1] == 'k':
-                print(param,end="")
-                shouldDo=False
-            else:
-                print(format_string[idx],end="")
+    for digit in binary_digits:
+        if digit == '0':
+            result += '0'
         else:
-            shouldDo=True
-    print("")
+            result += alphabet[int(digit) - 1]
+
+    return result
+
+
 
 data=sys.stdin.readlines()
 
