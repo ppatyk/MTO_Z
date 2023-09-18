@@ -59,19 +59,15 @@ def decimal_to_binary(param):
 
 def my_printf(format_string, param):
     new_param = decimal_to_binary(param)
-    result = format_string.replace('/#d', new_param)
-    
-
-
+    result = format_string.replace('#d', new_param)
     print(result)
 
-    # format_string = format_string.replace('#b', result)
-    # print(format_string)
+    format_string = format_string.replace('#b', result)
+    print(format_string)
 
 
-my_printf('TEST1 #b TEST1', '5a5a5')
 
-# data = sys.stdin.readlines()
+data = sys.stdin.readlines()
 
-# for i in range(0, len(data), 2):
-#     my_printf(data[i].rstrip(), data[i+1].rstrip())
+for i in range(0, len(data), 2):
+    my_printf(data[i].rstrip(), data[i+1].rstrip())
