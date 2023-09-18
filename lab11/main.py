@@ -16,6 +16,15 @@ def convertBin(string):
 
     return converted
 
+
+def removeZeros(BinValue, amount):
+    BinLen = len(BinValue)
+    if BinLen < int(amount):
+        for i in range(int(amount) - BinLen):
+            BinValue = '0' + BinValue
+
+    return BinValue
+
 def my_printf(format_string,param):
     #print(format_string)
     shouldDo=True
