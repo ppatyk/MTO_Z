@@ -2,6 +2,20 @@
 
 import sys
 
+
+def convertBin(string):
+    converted = ''
+    for char in string:
+        if 'a' <= char <= 'z':
+            char = chr(ord(char))
+ 
+        if char == '0':
+            char = 'o'
+
+        converted += char
+
+    return converted
+
 def my_printf(format_string,param):
     #print(format_string)
     shouldDo=True
